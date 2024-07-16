@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./MovieCard.module.css";
+
 function MovieCard({ Title, Year, imdbID, Type, Poster }) {
   return (
-    <Link className={styles.movieCard} to={`/detail/${imdbID}`}>
+    <Link
+      to={`/detail/${imdbID}`}
+      className="p-4 grid place-content-center text-center bg-white rounded-lg cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
+    >
       <img
         src={
           Poster === "N/A"
@@ -11,11 +14,11 @@ function MovieCard({ Title, Year, imdbID, Type, Poster }) {
             : Poster
         }
         alt=""
-        className={styles.moviePoster}
+        className="w-72 h-96 object-fill mb-4 rounded-md"
       />
-      <h2 className={styles.movieTitle}>{Title}</h2>
-      <h4 className={styles.movieYear}>{Year}</h4>
-      <h4 className={styles.movieType}>{Type}</h4>
+      <h2 className="text-xl my-1">{Title}</h2>
+      <h4 className="text-gray-500 capitalize">{Year}</h4>
+      <h4 className="text-gray-500 capitalize">{Type}</h4>
     </Link>
   );
 }
